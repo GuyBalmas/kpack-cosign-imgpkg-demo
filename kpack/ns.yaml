@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2022-12-06T07:28:57Z"
+  labels:
+    kubernetes.io/metadata.name: bundled-apps
+  name: bundled-apps
+  resourceVersion: "601"
+  uid: c872c244-3be8-43f4-a35e-131d78d5f977
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

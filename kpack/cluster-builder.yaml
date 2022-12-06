@@ -1,0 +1,18 @@
+apiVersion: kpack.io/v1alpha2
+kind: ClusterBuilder
+metadata:
+  name: my-cluster-builder
+spec:
+  tag: guybalmas/cluster-builder
+  stack:
+    name: base
+    kind: ClusterStack
+  store:
+    name: my-cluster-store
+    kind: ClusterStore
+  serviceAccountRef:
+    name: my-service-account
+    namespace: bundled-apps
+  order:
+    - group:
+        - id: paketo-buildpacks/java

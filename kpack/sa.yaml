@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: my-service-account
+  namespace: bundled-apps
+secrets:
+  - name: docker-registry-credentials
+  - name: cosign-key-pair
+imagePullSecrets:
+  - name: docker-registry-credentials

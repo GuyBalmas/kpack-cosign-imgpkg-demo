@@ -1,0 +1,31 @@
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: my-bundle-image
+  namespace: bundled-apps
+spec:
+  tag: guybalmas/example-app-oci
+  serviceAccountName: my-service-account
+  builder:
+    kind: ClusterBuilder
+    name: my-cluster-builder
+  source:
+    registry:
+      image: "index.docker.io/guybalmas/src-code-image"
+      imagePullSecrets:
+        - name: "docker-registry-credentials"
+#    subPath: "src/"
+  build:
+    env:
+      - name: "BPL_JAVA_NMT_ENABLED"
+        value: "false"
+      - name: "BP_JVM_TYPE"
+        value: "JRE"
+      - name: "BP_JVM_VERSION"
+        value: "11"
+      - name: "BP_OCI_AUTHORS"
+        value: "GuyBalmas"
+      - name: "BP_OCI_TITLE"
+        value: "example-app"
+      - name: "GREETING_MSG"
+        value: "Welcome to Kpack + Carvel toolkit demo!"
