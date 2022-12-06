@@ -187,8 +187,10 @@ cosign verify --key cosign.pub guybalmas/example-app-oci@sha256:8a10e2e4a0477e22
 ### Step 5 - Trigger builds
 When monitoring an image registry as source registry, `kpack` doesn't rebuild when `latest` image changes.
 We will need to trigger `kpack` actively whenever a new source image is pushed to the image registry.
+
+- **important**: the `push` command should be done from the source code repo, since we are pushing the application's source code itself.
 ```bash
-# Push packaged source code image to dockerhub
+# Push packaged source code image from **source code repo** to dockerhub
 imgpkg push -i guybalmas/src-code-image -f .
 ```
 **output:**
