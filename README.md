@@ -116,7 +116,6 @@ data:
 
 3. Apply onto the cluster:
 ```bash
-```bash
 kubectl apply -f cosign-secret.yaml
 
 #validate
